@@ -10,11 +10,11 @@ Nginx::Log::Statistics - This module parses the Nginx combined access log and pr
 
 =head1 VERSION
 
-Version 0.02
+Version 0.03
 
 =cut
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 =head1 SYNOPSIS
@@ -216,11 +216,11 @@ This internal method returns an array of L<Nging::Log::Entry> objects. It requir
 sub _build_log_array {
     my ($self, $filepath) = @_;
     open (my $fh, '<', $filepath) or die $!;
-    my $log = [];
+    my @log = ();
     while (<$fh>) {
-        push @{$log}, Nginx::Log::Entry->new($_);
+        push @log, Nginx::Log::Entry->new($_);
     }
-    return $log;
+    return \@log;
 }
 
 =head2 _build_structure

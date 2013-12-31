@@ -1,5 +1,8 @@
 Revision history for Nginx-Log-Statistics
 
+0.03    2013/12/31
+        - Updated _build_log_array to use an array and return a ref instead of using an array ref for speed gain.
+
 0.02    2013/11/17
         - Updated POD.
 
